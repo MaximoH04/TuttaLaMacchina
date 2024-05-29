@@ -1,18 +1,25 @@
 import java.util.Scanner;
 import java.util.*;
+import java.util.ArrayList;
 
 public class Administrador implements AdministradorIZ {
+	private ArrayList<Autopartes> autoparte;
 
+	public Administrador(){
+		autoparte = new ArrayList<Autopartes>();
+	}
+
+	
 	public boolean validarContraseña(String Contraseña) {
 		return false;
 	}
 
 	public void cargarAutoparte() {
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Ingrese los datos de la nueva autoparte:");
+		System.out.println("Nueva autoparte");
 		
 		System.out.print("Codigo: ");
-		String codigo = scanner.nextLine();
+		int codigo = scanner.nextInt();
 		
 		System.out.print("Denominacion: ");
 		String denominacion = scanner.nextLine();
@@ -45,21 +52,47 @@ public class Administrador implements AdministradorIZ {
 		System.out.print("Stock minimo: ");
 		int stockMinimo = scanner.nextInt();
 		
-		Autopartes nuevaAutoparte = new Autopartes(codigo, denominacion, descripcion, categoria, marca, vehiculo, modelo, precioUnitario, enlace, cantidadEnStock, stockMinimo);
 		
+		Autopartes nuevaAutoparte = new Autopartes(codigo, denominacion, descripcion, categoria, marca, vehiculo, modelo, precioUnitario, enlace, cantidadEnStock, stockMinimo);
+		autoparte.add(nuevaAutoparte);
+		scanner.close();
 	}		
 		
 
 	public void obtenerCatalogo(String Catalogo) {
-
+		
 	}
 
-	public int modificarAutoparte(int codigo) {
-		return 0;
-	}
+	public void modificarAutoparte(int codigo) {
+		Scanner scanner = new Scanner(System.in);
+		for(int i = 0; i < autoparte.size(); i++){
+			if(autoparte.get(i).getCodigo()==codigo){
+		System.out.print("¿Qué le gustaria cambiar de la autoparte?");
+		System.out.print("Denominacion (1)");
+		System.out.print("Descripcion (2)");
+		System.out.print("Categoria (3)");
+		System.out.print("Marca (4)");
+		System.out.print("Vehiculo (5)");
+		System.out.print("Modelo (6)");
+		System.out.print("Precio unitario (7) ");
+		System.out.print("Enlace (8)");
+		System.out.print("Cantidad en stock (9)");
+		System.out.print("Stock minimo (10)");
+		
 
-	public void eliminarAutoparte(String Catalogo) {
+		}
+		
+			}
+		}
+	
 
+	public void eliminarAutoparte(int codigo) {
+		for(int i = 0; i < autoparte.size(); i++){
+			if(autoparte.get(i).getCodigo()==codigo){
+				autoparte.remove(i);
+				return;
+			}
+		}
 	}
 
 }

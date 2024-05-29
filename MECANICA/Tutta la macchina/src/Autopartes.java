@@ -1,6 +1,6 @@
 
 public class Autopartes {
-	private String codigo;
+	private int codigo;
 	private String denominacion;
 	private String descripcion;
 	private String categoria;
@@ -12,7 +12,7 @@ public class Autopartes {
 	private int cantidadEnStock;
 	private int stockMinimo;
 	
-	public Autopartes(String codigo, String denominacion, String descripcion, String categoria, String marca, String vehiculo, String modelo, double precioUnitario, String enlace, int cantidadEnStock, int stockMinimo) {
+	public Autopartes(int codigo, String denominacion, String descripcion, String categoria, String marca, String vehiculo, String modelo, double precioUnitario, String enlace, int cantidadEnStock, int stockMinimo) {
 		this.codigo= codigo;
 		this.denominacion= denominacion;
 		this.descripcion= descripcion;
@@ -26,11 +26,11 @@ public class Autopartes {
 		this.stockMinimo = stockMinimo;
 	}
 
-	public String getCodigo() {
+	public int getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(String codigo) {
+	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
 
