@@ -115,6 +115,16 @@ public class Autopartes {
 	}
 	
 	public void descontarStock() {
-		
+		if (cantidadEnStock>0) {
+			cantidadEnStock-=1;
+			if (cantidadEnStock<=stockMinimo) {
+				System.out.println("EL STOCK HA LLEGADO A LA CANTIDAD MINIMA");
+			}
+		}else {
+			System.out.println("No hay suficiente stock");
+		}
+	}
+	public int consultarStock() {
+		return cantidadEnStock;
 	}
 }

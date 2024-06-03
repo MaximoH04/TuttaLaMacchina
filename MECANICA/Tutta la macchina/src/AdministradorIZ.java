@@ -4,5 +4,5 @@ public interface AdministradorIZ {
     void cargarAutoparte();
     void obtenerCatalogo(String Catalogo);
     void modificarAutoparte(int codigo);
-    void eliminarAutoparte();
+    void eliminarAutoparte(int codigo);
 }

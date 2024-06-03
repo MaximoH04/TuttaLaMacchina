@@ -2,13 +2,15 @@ import java.util.Scanner;
 import java.util.*;
 import java.util.ArrayList;
 
-public class Administrador implements AdministradorIZ {
+public class Administrador implements AdministradorIZ,CatalogoIZ {
 	private ArrayList<Autopartes> autoparte;
 
 	public Administrador(){
 		autoparte = new ArrayList<Autopartes>();
 	}
-
+	public ArrayList<Autopartes> getAutopartes() {
+        return autoparte;
+    }
 	
 	public boolean validarContraseña(String Contraseña) {
 		return false;
@@ -85,7 +87,23 @@ public class Administrador implements AdministradorIZ {
 			}
 		}
 	
-
+	public void listarCatalogo() {
+        System.out.println("Catálogo de Autopartes:");
+        for (Autopartes autoparte : autoparte) {
+            System.out.println("Código: " + autoparte.getCodigo());
+            System.out.println("Denominación : " + autoparte.getDenominacion());
+            System.out.println("Descripción : " + autoparte.getDescripcion());
+            System.out.println("Categoría : " + autoparte.getCategoria());
+            System.out.println("Marca : " + autoparte.getMarca());
+            System.out.println("Vehículo : " + autoparte.getVehiculo());
+            System.out.println("Modelo : " + autoparte.getModelo());
+            System.out.println("Precio Unitario : " + autoparte.getPrecioUnitario());
+            System.out.println("Enlace : " + autoparte.getEnlace());
+            System.out.println("Stock : " + autoparte.getCantidadEnStock());
+            System.out.println("Stock Mínimo: " + autoparte.getStockMinimo());
+            System.out.println("-----------------------------");
+        }             
+    }
 	public void eliminarAutoparte(int codigo) {
 		for(int i = 0; i < autoparte.size(); i++){
 			if(autoparte.get(i).getCodigo()==codigo){
