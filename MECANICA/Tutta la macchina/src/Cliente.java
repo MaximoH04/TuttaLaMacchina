@@ -42,8 +42,22 @@ public class Cliente implements ClienteIZ{
 	    
 	    scanner.close();
 	}
+	
 	public void realizarPedido(){
-
+		mostrarCatalogo();
+		boolean iniciarPedido = true;
+		Scanner scanner = new Scanner(System.in);
+		
+		while (iniciarPedido) {
+			System.out.println("Ingrese código de auto parte que desea pedir o -1 para finalizar: ");
+			int codigo = scanner.nextInt();
+			if (codigo == -1) {
+				iniciarPedido = false;
+				break;
+			}
+		}
+		//TODO
+		scanner.close();
     }
 	public void iniciarPago(){
 
