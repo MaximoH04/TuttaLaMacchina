@@ -1,4 +1,4 @@
-
+package negocio;
 public interface ClienteIZ {
 	void reservarPedido();
 	void realizarPedido();

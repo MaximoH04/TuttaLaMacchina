@@ -1,4 +1,4 @@
-
+package negocio;
 public class Autopartes {
 	private int codigo;
 	private String denominacion;

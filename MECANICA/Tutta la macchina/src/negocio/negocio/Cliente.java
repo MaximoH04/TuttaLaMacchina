@@ -1,3 +1,5 @@
+package negocio;
+
 import java.util.Scanner;
 public class Cliente implements ClienteIZ{
 	private Administrador administrador;

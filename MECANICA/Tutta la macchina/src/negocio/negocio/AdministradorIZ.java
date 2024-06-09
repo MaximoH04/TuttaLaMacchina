@@ -1,4 +1,4 @@
-
+package negocio;
 public interface AdministradorIZ {
     boolean validarContraseña(String Contraseña);
     void cargarAutoparte();
