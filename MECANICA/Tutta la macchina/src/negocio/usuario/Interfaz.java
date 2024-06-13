@@ -17,7 +17,7 @@ public class Interfaz {
 		
 		
 		do {
-			System.out.println("Ingrese una opción (1 cargar autoparte, 2 modificar autoparte, 3 eliminar autoparte, 4 listar catalogo, 5 registrar cliente, 6 registrar pedido, s para salir):  ");
+			System.out.println("Ingrese una opción (1 cargar autoparte, 2 modificar autoparte, 3 eliminar autoparte, 4 listar catalogo, 5 registrar cliente, 6 reservar pedido,7 registrar venta, s para salir):  ");
 			opcion = sc.next();
 			
 			if(opcion.equals("1")) {
@@ -39,6 +39,8 @@ public class Interfaz {
 			}else if(opcion.equals("6")) {
 				administrador.reservarPedido();
 			
+			}else if(opcion.equals("7")) {
+				administrador.registrarVenta();
 			}
 		}while(!opcion.equals("s"));
 		sc.close();
@@ -142,7 +144,7 @@ public class Interfaz {
 		
 	}		
 	
-
+	
 	
 
 }

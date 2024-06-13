@@ -114,11 +114,11 @@ public class Autopartes {
 		this.stockMinimo = stockMinimo;
 	}
 	
-	public void descontarStock() {
-		if (cantidadEnStock>0) {
-			cantidadEnStock-=1;
+	public void descontarStock(int cantidad) {
+		if (cantidadEnStock>+cantidad) {
+			cantidadEnStock-=cantidad;
 			if (cantidadEnStock<=stockMinimo) {
-				System.out.println("EL STOCK HA LLEGADO A LA CANTIDAD MINIMA");
+				System.out.println("ALERTA: EL STOCK HA LLEGADO A LA CANTIDAD MINIMA");
 			}
 		}else {
 			System.out.println("No hay suficiente stock");

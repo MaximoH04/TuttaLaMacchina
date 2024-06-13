@@ -18,6 +18,13 @@ public class Pedido {
 		this.detalles = detalles;
 		
 	}
+	public int getId() {
+        return this.id;
+    }
+
+    public double getMontoTotal() {
+        return this.montoTotal;
+    }
 	
 
 

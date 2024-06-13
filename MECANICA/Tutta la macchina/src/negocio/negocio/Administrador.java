@@ -157,63 +157,152 @@ public class Administrador implements AdministradorIZ {
 	
 	public void reservarPedido() {
 	    Scanner sc = new Scanner(System.in);
-	    
+
 	    System.out.println("Nuevo pedido");
-		
-		System.out.print("ID: ");
-		int id = sc.nextInt();
-		
-		System.out.print("Fecha: ");
-		String fecha = sc.next();
-		
-		int codigo = 0;
-		ArrayList<Detalle> detalles = new ArrayList<Detalle>();
-		do {
-			boolean existe = false;
-			System.out.print("Ingrese el código de la autoparte que desea reservar o -1 para salir");
-			codigo = sc.nextInt();
-			
-			for (int i = 0; (i < autoparte.size() && !existe); i++ ) {
-				
-				
-				 if (autoparte.get(i).getCodigo() == codigo) {
-					 existe = true;
-					 System.out.print("Ingrese la cantidad de la autoparte que desea reservar)");
-					 int cantidad = sc.nextInt();
-					 if (cantidad > autoparte.get(i).getCantidadEnStock()) {
-						 System.out.println("No hay suficiente stock de " + autoparte.get(i).getDenominacion());
-						 
-						 
-					 }else {
-						 String denominacion = autoparte.get(i).getDenominacion();
-						 double precio = autoparte.get(i).getPrecioUnitario();
-						 Detalle detalle = new Detalle(i, denominacion, precio, cantidad);
-						 detalles.add(detalle);
-						 
-						 
-						
-						 
-					 }
-			 	 
-				 }
-			}
-			if (!existe) {
-				System.out.println("No se encontró ninguna autoparte con el código " + codigo);
-			}
-		
-				
-	    }while(codigo != -1);
-		double monto = 0;
-		
-		for (int x = 0; x < detalles.size(); x++) {
-			monto = monto + detalles.get(x).getPrecioTotal();
-		}
-			
-		
-		Pedido pedido = new Pedido(id, fecha, monto, detalles);
-		pedidos.add(pedido);
+
+	    System.out.print("ID: ");
+	    int id = sc.nextInt();
+
+	    System.out.print("Fecha: ");
+	    String fecha = sc.next();
+
+	    int codigo = 0;
+	    ArrayList<Detalle> detalles = new ArrayList<Detalle>();
+	    do {
+	        boolean existe = false;
+	        System.out.print("Ingrese el código de la autoparte que desea reservar o -1 para salir: ");
+	        codigo = sc.nextInt();
+
+	        for (int i = 0; i < autoparte.size() && !existe; i++) {
+	            if (autoparte.get(i).getCodigo() == codigo) {
+	                existe = true;
+	                System.out.print("Ingrese la cantidad de la autoparte que desea reservar: ");
+	                int cantidad = sc.nextInt();
+	                if (cantidad > autoparte.get(i).getCantidadEnStock()) {
+	                    System.out.println("No hay suficiente stock de " + autoparte.get(i).getDenominacion());
+	                } else {
+	                    String denominacion = autoparte.get(i).getDenominacion();
+	                    double precio = autoparte.get(i).getPrecioUnitario();
+	                    Detalle detalle = new Detalle(codigo, denominacion, precio, cantidad);
+	                    detalles.add(detalle);
+
+	                    // Descontar el stock
+	                    autoparte.get(i).descontarStock(cantidad);
+	                }
+	            }
+	        }
+	        if (!existe && codigo != -1) {
+	            System.out.println("No se encontró ninguna autoparte con el código " + codigo);
+	        }
+
+	    } while (codigo != -1);
+
+	    double monto = 0;
+	    for (int x = 0; x < detalles.size(); x++) {
+	        monto += detalles.get(x).getPrecioTotal();
+	    }
+
+	    Pedido pedido = new Pedido(id, fecha, monto, detalles);
+	    pedidos.add(pedido);
 	}
 			
-			
-			
+	public void registrarVenta() {
+		Scanner sc = new Scanner(System.in);
+	
+		System.out.println("Registrar venta");
+	
+		System.out.print("Desea realizar un nuevo pedido? (s/n): ");
+		String respuesta = sc.next();
+	
+		if (respuesta.equalsIgnoreCase("s")) {
+			System.out.println("Nuevo pedido");
+	
+			System.out.print("ID: ");
+			int id = sc.nextInt();
+	
+			System.out.print("Fecha: ");
+			String fecha = sc.next();
+	
+			int codigo = 0;
+			ArrayList<Detalle> detalles = new ArrayList<Detalle>();
+			do {
+				boolean existe = false;
+				System.out.print("Ingrese el código de la autoparte que desea reservar o -1 para salir: ");
+				codigo = sc.nextInt();
+	
+				for (int i = 0; i < autoparte.size() && !existe; i++) {
+					if (autoparte.get(i).getCodigo() == codigo) {
+						existe = true;
+						System.out.print("Ingrese la cantidad de la autoparte que desea reservar: ");
+						int cantidad = sc.nextInt();
+						if (cantidad > autoparte.get(i).getCantidadEnStock()) {
+							System.out.println("No hay suficiente stock de " + autoparte.get(i).getDenominacion());
+						} else {
+							String denominacion = autoparte.get(i).getDenominacion();
+							double precio = autoparte.get(i).getPrecioUnitario();
+							Detalle detalle = new Detalle(codigo, denominacion, precio, cantidad);
+							detalles.add(detalle);
+	
+							// Descontar el stock
+							autoparte.get(i).descontarStock(cantidad);
+						}
+					}
+				}
+				if (!existe && codigo != -1) {
+					System.out.println("No se encontró ninguna autoparte con el código " + codigo);
+				}
+	
+			} while (codigo != -1);
+	
+			double monto = 0;
+			for (int x = 0; x < detalles.size(); x++) {
+				monto += detalles.get(x).getPrecioTotal();
+			}
+	
+			Pedido pedido = new Pedido(id, fecha, monto, detalles);
+			pedidos.add(pedido);
+		}
+	
+		System.out.print("Ingrese el ID del pedido: ");
+		int idPedido = sc.nextInt();
+		Pedido pedido = buscarPedidoPorId(idPedido);
+		if (pedido == null) {
+			System.out.println("Pedido no encontrado");
+			return;
+		}
+	
+		System.out.print("Ingrese el medio de pago (1: Débito, 2: Efectivo, 3: Crédito): ");
+		int medioPago = sc.nextInt();
+	
+		MedioDePago pago;
+		if (medioPago == 1) {
+			pago = new Debito(pedido.getMontoTotal());
+		} else if (medioPago == 2) {
+			pago = new Efectivo(pedido.getMontoTotal());
+		} else if (medioPago == 3) {
+			System.out.print("Ingrese la cantidad de cuotas (2, 3 o 6): ");
+			int cuotas = sc.nextInt();
+			if (cuotas != 2 && cuotas != 3 && cuotas != 6) {
+				System.out.println("Número de cuotas no válido");
+				return;
+			}
+			pago = new Credito(pedido.getMontoTotal(), cuotas);
+		} else {
+			System.out.println("Medio de pago no válido");
+			return;
+		}
+	
+		double montoFinal = pago.calcularMontoFinal();
+		System.out.println("Monto final a pagar: " + montoFinal);
+		// Aquí podrías registrar la venta, descontar el stock, etc.
+	}
+	private Pedido buscarPedidoPorId(int idPedido) {
+		for (Pedido pedido : pedidos) {
+			if (pedido.getId() == idPedido) {
+				return pedido;
+			}
+		}
+		return null;
+	}
+	
 }
