@@ -55,24 +55,25 @@ public class Interfaz {
 		
 		System.out.print("Codigo: ");
 		int codigo = scanner.nextInt();
+		scanner.nextLine();
 		
 		System.out.print("Denominacion: ");
-		String denominacion = scanner.next();
+		String denominacion = scanner.nextLine();
 		
 		System.out.print("Descripcion: ");
-		String descripcion = scanner.next();
+		String descripcion = scanner.nextLine();
 
 		System.out.print("Categoria: ");
-		String categoria = scanner.next();
+		String categoria = scanner.nextLine();
 		
 		System.out.print("Marca: ");
-		String marca = scanner.next();
+		String marca = scanner.nextLine();
 		
 		System.out.print("Vehiculo: ");
-		String vehiculo = scanner.next();
+		String vehiculo = scanner.nextLine();
 		
 		System.out.print("Modelo: ");
-		String modelo = scanner.next();
+		String modelo = scanner.nextLine();
 		
 		System.out.print("Precio unitario: ");
 		double precioUnitario = scanner.nextDouble();
@@ -119,24 +120,25 @@ public class Interfaz {
 		
 		System.out.print("ID: ");
 		int id = sc.nextInt();
+		sc.nextLine();
 		
 		System.out.print("Nombre: ");
-		String nombre = sc.next();
+		String nombre = sc.nextLine();
 		
 		System.out.print("Direccion: ");
-		String direccion = sc.next();
+		String direccion = sc.nextLine();
 		
 		System.out.print("Telefono: ");
 		String telefono = sc.next();
 		
 		System.out.print("Localidad: ");
-		String localidad = sc.next();
+		String localidad = sc.nextLine();
 		
 		System.out.print("Provincia: ");
-		String provincia = sc.next();
+		String provincia = sc.nextLine();
 		
 		System.out.print("e-mail: ");
-		String email = sc.next();
+		String email = sc.nextLine();
 		
 		
 		Cliente nuevoCliente = new Cliente(id, nombre, direccion, telefono, localidad, provincia, email);
