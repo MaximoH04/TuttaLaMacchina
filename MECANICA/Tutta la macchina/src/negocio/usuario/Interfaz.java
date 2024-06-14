@@ -17,7 +17,7 @@ public class Interfaz {
 		
 		
 		do {
-			System.out.println("Ingrese una opción (1 cargar autoparte, 2 modificar autoparte, 3 eliminar autoparte, 4 listar catalogo, 5 registrar cliente, 6 reservar pedido,7 registrar venta, s para salir):  ");
+			System.out.println("Ingrese una opción (1 cargar autoparte, 2 modificar autoparte, 3 eliminar autoparte, 4 listar catalogo, 5 registrar cliente, 6 reservar pedido,7 registrar venta,8 Cancelar pedido, s para salir):  ");
 			opcion = sc.next();
 			
 			if(opcion.equals("1")) {
@@ -41,6 +41,8 @@ public class Interfaz {
 			
 			}else if(opcion.equals("7")) {
 				administrador.registrarVenta();
+			}else if(opcion.equals("8")) {
+				cancelarPedido();
 			}
 		}while(!opcion.equals("s"));
 		sc.close();
@@ -129,7 +131,7 @@ public class Interfaz {
 		String direccion = sc.nextLine();
 		
 		System.out.print("Telefono: ");
-		String telefono = sc.next();
+		String telefono = sc.nextLine();
 		
 		System.out.print("Localidad: ");
 		String localidad = sc.nextLine();
@@ -146,7 +148,12 @@ public class Interfaz {
 		
 	}		
 	
-	
+	 public static void cancelarPedido() {
+	        Scanner sc = new Scanner(System.in);
+	        System.out.print("Ingrese el ID del pedido a cancelar: ");
+	        int idPedido = sc.nextInt();
+	        administrador.cancelarPedido(idPedido);
+	    }
 	
 
 }

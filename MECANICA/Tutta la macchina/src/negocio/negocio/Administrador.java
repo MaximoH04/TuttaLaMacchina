@@ -55,38 +55,38 @@ public class Administrador implements AdministradorIZ {
 				if(opcion.equals("1")){
 					System.out.println("La denominacion de la autoparte es:" + autoparte.get(i).getDenominacion());
 					System.out.print("Ingrese la nueva denominacion:");
-					String denominacion = scanner.next();
+					String denominacion = scanner.nextLine();
 					autoparte.get(i).setDenominacion(denominacion);
 				
 					
 				}else if (opcion.equals("2")) {
 					System.out.println("La descripcioncion de la autoparte es:" + autoparte.get(i).getDescripcion());
 					System.out.print("Ingrese la nueva descripcion:");
-					String descripcion = scanner.next();
+					String descripcion = scanner.nextLine();
 					autoparte.get(i).setDescripcion(descripcion);
 					
 				}else if (opcion.equals("3")) {
 					System.out.println("La categoria de la autoparte es:" + autoparte.get(i).getCategoria());
 					System.out.print("Ingrese la nueva categoria:");
-					String categoria = scanner.next();
+					String categoria = scanner.nextLine();
 					autoparte.get(i).setCategoria(categoria);
 				
 				}else if (opcion.equals("4")) {
 					System.out.println("La marca de la autoparte es:" + autoparte.get(i).getMarca());
 					System.out.print("Ingrese la nueva marca:");
-					String marca = scanner.next();
+					String marca = scanner.nextLine();
 					autoparte.get(i).setMarca(marca);
 					
 				}else if (opcion.equals("5")) {
 					System.out.println("El vehiculo de la autoparte es:" + autoparte.get(i).getVehiculo());
 					System.out.print("Ingrese el nuevo vehiculo:");
-					String vehiculo = scanner.next();
+					String vehiculo = scanner.nextLine();
 					autoparte.get(i).setVehiculo(vehiculo);
 					
 				}else if (opcion.equals("6")) {
 					System.out.println("El modelo de la autoparte es:" + autoparte.get(i).getModelo());
 					System.out.print("Ingrese el nuevo modelo:");
-					String modelo = scanner.next();
+					String modelo = scanner.nextLine();
 					autoparte.get(i).setModelo(modelo);
 					
 				}else if (opcion.equals("7")) {
@@ -98,7 +98,7 @@ public class Administrador implements AdministradorIZ {
 				}else if (opcion.equals("8")) {
 					System.out.println("El enlace de la autoparte es:" + autoparte.get(i).getEnlace());
 					System.out.print("Ingrese el nuevo enlace:");
-					String enlace = scanner.next();
+					String enlace = scanner.nextLine();
 					autoparte.get(i).setEnlace(enlace);
 					
 				}else if (opcion.equals("9")) {
@@ -296,6 +296,27 @@ public class Administrador implements AdministradorIZ {
 		System.out.println("Monto final a pagar: " + montoFinal);
 		// Aquí podrías registrar la venta, descontar el stock, etc.
 	}
+	public void cancelarPedido(int idPedido) {
+	    Pedido pedido = buscarPedidoPorId(idPedido);
+	    if (pedido == null) {
+	        System.out.println("Pedido no encontrado");
+	        return;
+	    }
+
+	    // Devolver el stock de las autopartes del pedido cancelado
+	    for (Detalle detalle : pedido.getDetalles()) {
+	        for (Autopartes autoparte : autoparte) {
+	            if (autoparte.getCodigo() == detalle.getId()) { // Aquí usamos getId() de Detalle
+	                autoparte.devolverStock(detalle.getCantidad());
+	            }
+	        }
+	    }
+
+	    pedidos.remove(pedido);
+	    System.out.println("Pedido cancelado y stock devuelto correctamente");
+	}
+
+	
 	private Pedido buscarPedidoPorId(int idPedido) {
 		for (Pedido pedido : pedidos) {
 			if (pedido.getId() == idPedido) {

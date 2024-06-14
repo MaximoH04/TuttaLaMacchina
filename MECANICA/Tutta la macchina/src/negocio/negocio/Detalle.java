@@ -28,7 +28,7 @@ public class Detalle {
 		 return precio;
 	 }
 	 
-	 public int cantidad() {
+	 public int getCantidad() {
 		 return cantidad;
 	 }
 	 

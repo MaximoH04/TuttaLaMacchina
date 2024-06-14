@@ -124,6 +124,10 @@ public class Autopartes {
 			System.out.println("No hay suficiente stock");
 		}
 	}
+	  public void devolverStock(int cantidad) {
+	        cantidadEnStock += cantidad;
+	        System.out.println("Stock devuelto: " + cantidad + " de " + denominacion + ". Stock actual: " + cantidadEnStock);
+	    }
 	public int consultarStock() {
 		return cantidadEnStock;
 	}
