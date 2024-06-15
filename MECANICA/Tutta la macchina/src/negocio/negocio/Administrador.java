@@ -1,6 +1,6 @@
 package negocio;
 import java.util.Scanner;
-import java.util.*;
+//import java.util.*;
 import java.util.ArrayList;
 
 public class Administrador implements AdministradorIZ {
