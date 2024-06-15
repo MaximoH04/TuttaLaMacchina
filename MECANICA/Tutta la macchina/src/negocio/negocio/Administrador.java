@@ -17,10 +17,11 @@ public class Administrador implements AdministradorIZ {
         return autoparte;
     }
 	
-	public boolean validarContraseña(String Contraseña) {
+	/*public boolean validarContraseña(String Contraseña) {
+		System.out.print("Usuario:");
 		
 		return false;
-	}
+	}*/
 
 	
 	public void cargarAutoparte(Autopartes nuevaAutoparte) {
@@ -215,55 +216,10 @@ public class Administrador implements AdministradorIZ {
 		String respuesta = sc.next();
 	
 		if (respuesta.equalsIgnoreCase("s")) {
-			System.out.println("Nuevo pedido");
-	
-			System.out.print("ID: ");
-			int id = sc.nextInt();
-	
-			System.out.print("Fecha: ");
-			String fecha = sc.next();
-	
-			int codigo = 0;
-			ArrayList<Detalle> detalles = new ArrayList<Detalle>();
-			do {
-				boolean existe = false;
-				System.out.print("Ingrese el código de la autoparte que desea reservar o -1 para salir: ");
-				codigo = sc.nextInt();
-	
-				for (int i = 0; i < autoparte.size() && !existe; i++) {
-					if (autoparte.get(i).getCodigo() == codigo) {
-						existe = true;
-						System.out.print("Ingrese la cantidad de la autoparte que desea reservar: ");
-						int cantidad = sc.nextInt();
-						if (cantidad > autoparte.get(i).getCantidadEnStock()) {
-							System.out.println("No hay suficiente stock de " + autoparte.get(i).getDenominacion());
-						} else {
-							String denominacion = autoparte.get(i).getDenominacion();
-							double precio = autoparte.get(i).getPrecioUnitario();
-							Detalle detalle = new Detalle(codigo, denominacion, precio, cantidad);
-							detalles.add(detalle);
-	
-							// Descontar el stock
-							autoparte.get(i).descontarStock(cantidad);
-						}
-					}
-				}
-				if (!existe && codigo != -1) {
-					System.out.println("No se encontró ninguna autoparte con el código " + codigo);
-				}
-	
-			} while (codigo != -1);
-	
-			double monto = 0;
-			for (int x = 0; x < detalles.size(); x++) {
-				monto += detalles.get(x).getPrecioTotal();
-			}
-	
-			Pedido pedido = new Pedido(id, fecha, monto, detalles);
-			pedidos.add(pedido);
+			reservarPedido();
 		}
 	
-		System.out.print("Ingrese el ID del pedido: ");
+		System.out.print("Ingrese el ID del pedido a vender: ");
 		int idPedido = sc.nextInt();
 		Pedido pedido = buscarPedidoPorId(idPedido);
 		if (pedido == null) {
@@ -296,6 +252,7 @@ public class Administrador implements AdministradorIZ {
 		System.out.println("Monto final a pagar: " + montoFinal);
 		// Aquí podrías registrar la venta, descontar el stock, etc.
 	}
+	
 	public void cancelarPedido(int idPedido) {
 	    Pedido pedido = buscarPedidoPorId(idPedido);
 	    if (pedido == null) {

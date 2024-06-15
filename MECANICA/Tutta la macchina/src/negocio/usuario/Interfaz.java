@@ -14,40 +14,51 @@ public class Interfaz {
 		Scanner sc = new Scanner(System.in);
 		String opcion = "";
 		
-		
-		
-		do {
-			System.out.println("Ingrese una opción (1 cargar autoparte, 2 modificar autoparte, 3 eliminar autoparte, 4 listar catalogo, 5 registrar cliente, 6 reservar pedido,7 registrar venta,8 Cancelar pedido, s para salir):  ");
+		do{
+			System.out.println("Ingrese la contraseña o s para salir:");
 			opcion = sc.next();
-			
-			if(opcion.equals("1")) {
-				cargarAutoparte();
-				
-			}else if(opcion.equals("2")) {
-				modificarAutoparte();
-				
-				
-			}else if(opcion.equals("3")) {
-				eliminarAutoparte();
-				
-			}else if(opcion.equals("4")) {
-				listarCatalogo();
-			
-			}else if(opcion.equals("5")) {
-				registrarCliente();
-			
-			}else if(opcion.equals("6")) {
-				administrador.reservarPedido();
-			
-			}else if(opcion.equals("7")) {
-				administrador.registrarVenta();
-			}else if(opcion.equals("8")) {
-				cancelarPedido();
+			if(!opcion.equals("12345")){
+				System.out.println("Contraseña incorrecta.");
 			}
-		}while(!opcion.equals("s"));
-		sc.close();
+			
+		}
+		while(!opcion.equals("12345") && !opcion.equals("s"));
+			
+		if(!opcion.equals("s") ) {
+		
+			do {
+				System.out.println("Ingrese una opción (1 cargar autoparte, 2 modificar autoparte, 3 eliminar autoparte, 4 listar catalogo, 5 registrar cliente, 6 reservar pedido,7 registrar venta,8 Cancelar pedido, s para salir):  ");
+				opcion = sc.next();
+				
+				if(opcion.equals("1")) {
+					cargarAutoparte();
+					
+				}else if(opcion.equals("2")) {
+					modificarAutoparte();
+					
+					
+				}else if(opcion.equals("3")) {
+					eliminarAutoparte();
+					
+				}else if(opcion.equals("4")) {
+					listarCatalogo();
+				
+				}else if(opcion.equals("5")) {
+					registrarCliente();
+				
+				}else if(opcion.equals("6")) {
+					administrador.reservarPedido();
+				
+				}else if(opcion.equals("7")) {
+					administrador.registrarVenta();
+				}else if(opcion.equals("8")) {
+					cancelarPedido();
+				}
+			}while(!opcion.equals("s"));
+			sc.close();
+		
 	
-
+		}
 	}
 	
 	
