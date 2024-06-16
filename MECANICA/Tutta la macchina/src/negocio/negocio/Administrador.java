@@ -1,6 +1,5 @@
 package negocio;
 import java.util.Scanner;
-//import java.util.*;
 import java.util.ArrayList;
 
 public class Administrador implements AdministradorIZ {
@@ -17,22 +16,12 @@ public class Administrador implements AdministradorIZ {
         return autoparte;
     }
 	
-	/*public boolean validarContraseña(String Contraseña) {
-		System.out.print("Usuario:");
-		
-		return false;
-	}*/
-
 	
 	public void cargarAutoparte(Autopartes nuevaAutoparte) {
 		autoparte.add(nuevaAutoparte);
 		
 	}
 		
-
-	public void obtenerCatalogo(String Catalogo) {
-		
-	}
 
 	public void modificarAutoparte(int codigo) {
 		Scanner scanner = new Scanner(System.in);
@@ -250,6 +239,7 @@ public class Administrador implements AdministradorIZ {
 	
 		double montoFinal = pago.calcularMontoFinal();
 		System.out.println("Monto final a pagar: " + montoFinal);
+		
 		// Aquí podrías registrar la venta, descontar el stock, etc.
 	}
 	

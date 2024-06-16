@@ -1,3 +1,12 @@
+/*Trabajo Practico Paradigma Orientado a Objetos
+Integrantes:
+Joaquin Arguello
+Tomas Curti
+Juan Manuel Ferreiro
+Facundo Gagliardi
+Maximo Hidalgo
+*/
+
 package usuario;
 
 import java.util.Scanner;
