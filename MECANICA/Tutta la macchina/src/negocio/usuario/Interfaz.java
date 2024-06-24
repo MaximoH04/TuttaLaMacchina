@@ -36,9 +36,17 @@ public class Interfaz {
 		if(!opcion.equals("s") ) {
 		
 			do {
-				System.out.println("Ingrese una opción (1 cargar autoparte, 2 modificar autoparte, 3 eliminar autoparte, 4 listar catalogo, 5 registrar cliente, 6 reservar pedido,7 registrar venta,8 Cancelar pedido, s para salir):  ");
+				System.out.println("Cargar Autoparte (1)");
+				System.out.println("Modificar Autoparte (2)");
+				System.out.println("Eliminar Autoparte (3)");
+				System.out.println("Listar Catalogo (4)");
+				System.out.println("Registrar Cliente(5)");
+				System.out.println("Reservar Pedido(6)");
+				System.out.println("Registrar Venta(7)");
+				System.out.println("Cancelar Pedido(8)");
+				System.out.println("Salir(s)");
+				System.out.println("Ingrese una opción:");
 				opcion = sc.next();
-				
 				if(opcion.equals("1")) {
 					cargarAutoparte();
 					
