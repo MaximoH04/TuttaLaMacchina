@@ -29,17 +29,17 @@ public class Administrador implements AdministradorIZ {
 		for(int i = 0; i < autoparte.size(); i++){
 			if(autoparte.get(i).getCodigo()==codigo){
 				
-				System.out.print("¿Qué le gustaria cambiar de la autoparte?");
-				System.out.print("Denominacion (1)");
-				System.out.print("Descripcion (2)");
-				System.out.print("Categoria (3)");
-				System.out.print("Marca (4)");
-				System.out.print("Vehiculo (5)");
-				System.out.print("Modelo (6)");
-				System.out.print("Precio unitario (7) ");
-				System.out.print("Enlace (8)");
-				System.out.print("Cantidad en stock (9)");
-				System.out.print("Stock minimo (10)");
+				System.out.println("¿Qué le gustaria cambiar de la autoparte?");
+				System.out.println("Denominacion (1)");
+				System.out.println("Descripcion (2)");
+				System.out.println("Categoria (3)");
+				System.out.println("Marca (4)");
+				System.out.println("Vehiculo (5)");
+				System.out.println("Modelo (6)");
+				System.out.println("Precio unitario (7) ");
+				System.out.println("Enlace (8)");
+				System.out.println("Cantidad en stock (9)");
+				System.out.println("Stock minimo (10)");
 				opcion = scanner.next();
 				
 				if(opcion.equals("1")){
