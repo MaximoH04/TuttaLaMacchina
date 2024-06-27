@@ -44,6 +44,7 @@ public class Interfaz {
 				System.out.println("Reservar Pedido(6)");
 				System.out.println("Registrar Venta(7)");
 				System.out.println("Cancelar Pedido(8)");
+				System.out.println("Ver Ventas(9)");
 				System.out.println("Salir(s)");
 				System.out.println("Ingrese una opción:");
 				opcion = sc.next();
@@ -70,7 +71,8 @@ public class Interfaz {
 					administrador.registrarVenta();
 				}else if(opcion.equals("8")) {
 					cancelarPedido();
-				}
+				}else if(opcion.equals("9")) {
+					verVentas();}
 			}while(!opcion.equals("s"));
 			sc.close();
 		
@@ -183,5 +185,7 @@ public class Interfaz {
 	        administrador.cancelarPedido(idPedido);
 	    }
 	
-
+	 public static void verVentas() {
+		    administrador.verVentas();
+		}
 }

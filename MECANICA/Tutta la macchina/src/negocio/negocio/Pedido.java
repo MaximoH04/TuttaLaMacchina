@@ -3,35 +3,29 @@ package negocio;
 import java.util.ArrayList;
 
 public class Pedido {
-	
-	int id;
-	String fecha;
-	ArrayList<Detalle> detalles;
-	double montoTotal;
+    private int id;
+    private ArrayList<Detalle> detalles;
+    private double montoTotal;
 
-	
+    public Pedido(int id, ArrayList<Detalle> detalles, double montoTotal) {
+        this.id = id;
+        this.detalles = detalles;
+        this.montoTotal = montoTotal;
+    }
 
-	public Pedido(int id, String fecha, double montoTotal,ArrayList<Detalle> detalles) {
-		this.id = id;
-		this.fecha = fecha;
-		this.montoTotal = montoTotal;
-		this.detalles = detalles;
-		
-	}
-	public int getId() {
-        return this.id;
+    public int getId() {
+        return id;
+    }
+
+    public ArrayList<Detalle> getDetalles() {
+        return detalles;
     }
 
     public double getMontoTotal() {
-        return this.montoTotal;
+        return montoTotal;
     }
-	
 
-
-
-public ArrayList<Detalle> getDetalles(){
-	return detalles;
-}
-
-
+    public Venta generarVenta(MedioDePago medioDePago) {
+        return new Venta(this.id, this.detalles, medioDePago);
+    }
 }

@@ -115,15 +115,16 @@ public class Autopartes {
 	}
 	
 	public void descontarStock(int cantidad) {
-		if (cantidadEnStock>+cantidad) {
-			cantidadEnStock-=cantidad;
-			if (cantidadEnStock<=stockMinimo) {
-				System.out.println("ALERTA: EL STOCK HA LLEGADO A LA CANTIDAD MINIMA");
-			}
-		}else {
-			System.out.println("No hay suficiente stock");
-		}
+	    if (cantidadEnStock >= cantidad) {
+	        cantidadEnStock -= cantidad;
+	        if (cantidadEnStock <= stockMinimo) {
+	            System.out.println("ALERTA: EL STOCK HA LLEGADO A LA CANTIDAD MÍNIMA");
+	        }
+	    } else {
+	        System.out.println("No hay suficiente stock");
+	    }
 	}
+
 	  public void devolverStock(int cantidad) {
 	        cantidadEnStock += cantidad;
 	        System.out.println("Stock devuelto: " + cantidad + " de " + denominacion + ". Stock actual: " + cantidadEnStock);

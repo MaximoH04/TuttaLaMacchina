@@ -1,39 +1,35 @@
 package negocio;
 
 public class Detalle {
-	 int id;
-	 String articulo;
-	 double precio;
-	 int cantidad;
-	 
-	 
-	 
-	 public Detalle(int id, String articulo, double precio, int cantidad) {
-		 this.id = id;
-		 this.articulo = articulo;
-		 this.precio = precio;
-		 this.cantidad = cantidad;
-		
-	 }
-	 
-	 public int getId() {
-		 return id;
-	 }
-	 
-	 public String getArticulo() {
-		 return articulo;
-	 }
-	 
-	 public double getPrecio(){
-		 return precio;
-	 }
-	 
-	 public int getCantidad() {
-		 return cantidad;
-	 }
-	 
-	 public double getPrecioTotal() {
-		 return (precio * cantidad);
-	 }
+    private int codigo;
+    private String articulo;
+    private double precioUnitario;
+    private int cantidad;
 
+    public Detalle(int codigo, String articulo, double precioUnitario, int cantidad) {
+        this.codigo = codigo;
+        this.articulo = articulo;
+        this.precioUnitario = precioUnitario;
+        this.cantidad = cantidad;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public String getArticulo() {
+        return articulo;
+    }
+
+    public double getPrecioUnitario() {
+        return precioUnitario;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public double getPrecioTotal() {
+        return precioUnitario * cantidad;
+    }
 }
