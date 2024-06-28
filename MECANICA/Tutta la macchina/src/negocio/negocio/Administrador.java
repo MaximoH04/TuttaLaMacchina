@@ -159,6 +159,9 @@ public class Administrador implements AdministradorIZ {
             System.out.println("Enlace : " + autoparte.getEnlace());
             System.out.println("Stock : " + autoparte.getCantidadEnStock());
             System.out.println("Stock Mínimo: " + autoparte.getStockMinimo());
+		if(autoparte.getCantidadEnStock() <= autoparte.getStockMinimo()) {
+            	System.out.println("EN STOCK MINIMO");
+			
             System.out.println("-----------------------------");
         }             
     }
