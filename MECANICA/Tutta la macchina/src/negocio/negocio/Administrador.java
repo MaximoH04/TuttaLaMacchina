@@ -161,10 +161,12 @@ public class Administrador implements AdministradorIZ {
             System.out.println("Stock Mínimo: " + autoparte.getStockMinimo());
 		if(autoparte.getCantidadEnStock() <= autoparte.getStockMinimo()) {
             	System.out.println("EN STOCK MINIMO");
+		}
 			
             System.out.println("-----------------------------");
         }             
     }
+	
 	public void eliminarAutoparte(int codigo) {
 		for(int i = 0; i < autoparte.size(); i++){
 			if(autoparte.get(i).getCodigo()==codigo){
@@ -425,13 +427,6 @@ public class Administrador implements AdministradorIZ {
 	}
 
 	
-	/*private Pedido buscarPedidoPorId(int idPedido) {
-		for (Pedido pedido : pedidos) {
-			if (pedido.getId() == idPedido) {
-				return pedido;
-			}
-		}
-		return null;
-	 } */
+	
 	
 }
