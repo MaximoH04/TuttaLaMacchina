@@ -298,9 +298,9 @@ public class Administrador implements AdministradorIZ {
 					String vencimientoDebito = sc.nextLine();
 
 					System.out.println("Ingrese el código de seguridad (CVV):");
-					String cvv = sc.nextLine();
+					String cvvv = sc.nextLine();
 				
-					medioDePago = new Debito(monto, numeroTarjetaDebito, vencimientoDebito,cvv);
+					medioDePago = new Debito(monto, numeroTarjetaDebito, vencimientoDebito,cvvv);
 					break;
 		        case 3:
 					System.out.println("Ingrese el número de cuotas (2, 3, 6):");
@@ -392,9 +392,9 @@ public class Administrador implements AdministradorIZ {
 						String vencimientoDebito = sc.nextLine();
 					
 						System.out.println("Ingrese el código de seguridad (CVV):");
-						String cvv = sc.nextLine();
+						String cvvv = sc.nextLine();
 					
-						medioDePago = new Debito(monto, numeroTarjetaDebito, vencimientoDebito,cvv);
+						medioDePago = new Debito(monto, numeroTarjetaDebito, vencimientoDebito,cvvv);
 						break;
 		            case 3:
 						System.out.println("Ingrese el número de cuotas (2, 3, 6):");
