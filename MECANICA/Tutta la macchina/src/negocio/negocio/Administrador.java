@@ -187,6 +187,9 @@ public class Administrador implements AdministradorIZ {
 
 	    System.out.print("Ingrese el ID del nuevo pedido: ");
 	    int idPedido = sc.nextInt();
+	    
+	    System.out.print("Ingrese la fecha del pedido: ");
+	    String fecha = sc.next();
 
 	    ArrayList<Detalle> detalles = new ArrayList<>();
 	    int codigo;
@@ -221,7 +224,7 @@ public class Administrador implements AdministradorIZ {
 	    } while (codigo != -1); 
 
 	    if (!detalles.isEmpty()) {
-	        Pedido pedido = new Pedido(idPedido, detalles, 0); // El monto total se calculara en la clase venta
+	        Pedido pedido = new Pedido(idPedido, fecha, detalles); 
 	        pedidos.add(pedido);
 	        pedidoRegistrado = true;
 	        System.out.println("Pedido reservado correctamente.");

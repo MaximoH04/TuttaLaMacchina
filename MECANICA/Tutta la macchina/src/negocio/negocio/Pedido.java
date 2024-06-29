@@ -4,13 +4,15 @@ import java.util.ArrayList;
 
 public class Pedido {
     private int id;
+    private String fecha;
     private ArrayList<Detalle> detalles;
-    private double montoTotal;
+   
 
-    public Pedido(int id, ArrayList<Detalle> detalles, double montoTotal) {
+    public Pedido(int id, String fecha, ArrayList<Detalle> detalles){
         this.id = id;
+        this.fecha = fecha;
         this.detalles = detalles;
-        this.montoTotal = montoTotal;
+        
     }
 
     public int getId() {
@@ -21,11 +23,5 @@ public class Pedido {
         return detalles;
     }
 
-    public double getMontoTotal() {
-        return montoTotal;
-    }
 
-    public Venta generarVenta(MedioDePago medioDePago) {
-        return new Venta(this.id, this.detalles, medioDePago);
-    }
 }
