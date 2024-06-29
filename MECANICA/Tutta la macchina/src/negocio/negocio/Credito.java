@@ -2,12 +2,41 @@ package negocio;
 
 public class Credito extends MedioDePago {
     private int cuotas;
+    private String numeroTarjeta;
+    private String vencimiento;
+    private String cvv;
 
-    public Credito(double monto, int cuotas) {
+    public Credito(double monto, int cuotas, String numeroTarjeta, String vencimiento, String cvv) {
         super(monto);
         this.cuotas = cuotas;
+        this.numeroTarjeta = numeroTarjeta;
+        this.vencimiento = vencimiento;
+        this.cvv = cvv;
     }
 
+    public String getNumeroTarjeta() {
+        return numeroTarjeta;
+    }
+
+    public void setNumeroTarjeta(String numeroTarjeta) {
+        this.numeroTarjeta = numeroTarjeta;
+    }
+
+    public String getVencimiento() {
+        return vencimiento;
+    }
+
+    public void setVencimiento(String vencimiento) {
+        this.vencimiento = vencimiento;
+    }
+
+    public String getCvv() {
+        return cvv;
+    }
+
+    public void setCvv(String cvv) {
+        this.cvv = cvv;
+    }
     public int getCuotas() {
         return cuotas;
     }
