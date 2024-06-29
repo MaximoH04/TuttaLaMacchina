@@ -291,16 +291,33 @@ public class Administrador implements AdministradorIZ {
 		            medioDePago = new Efectivo(monto);
 		            break;
 		        case 2:
-		            medioDePago = new Debito(monto);
-		            break;
+					System.out.println("Ingrese el número de la tarjeta de débito:");
+					String numeroTarjetaDebito = sc.nextLine();
+				
+					System.out.println("Ingrese la fecha de vencimiento (MM/AA):");
+					String vencimientoDebito = sc.nextLine();
+				
+					medioDePago = new Debito(monto, numeroTarjetaDebito, vencimientoDebito);
+					break;
 		        case 3:
-		            System.out.println("Ingrese el número de cuotas (2, 3, 6):");
-		            int cuotas = sc.nextInt();
-		            medioDePago = new Credito(monto, cuotas);
-		            break;
-		        default:
-		            System.out.println("Método de pago no válido.");
-		            return;
+					System.out.println("Ingrese el número de cuotas (2, 3, 6):");
+					int cuotas = sc.nextInt();
+					sc.nextLine(); 
+		
+					System.out.println("Ingrese el número de la tarjeta de crédito:");
+					String numeroTarjeta = sc.nextLine();
+		
+					System.out.println("Ingrese la fecha de vencimiento (MM/AA):");
+					String vencimiento = sc.nextLine();
+		
+					System.out.println("Ingrese el código de seguridad (CVV):");
+					String cvv = sc.nextLine();
+		
+					medioDePago = new Credito(monto, cuotas, numeroTarjeta, vencimiento, cvv);
+					break;
+				default:
+					System.out.println("Método de pago no válido.");
+					return;
 		    }
 
 		    Venta venta = new Venta(pedido.getId(), pedido.getDetalles(), medioDePago);
@@ -365,16 +382,33 @@ public class Administrador implements AdministradorIZ {
 		                medioDePago = new Efectivo(monto);
 		                break;
 		            case 2:
-		                medioDePago = new Debito(monto);
-		                break;
+						System.out.println("Ingrese el número de la tarjeta de débito:");
+						String numeroTarjetaDebito = sc.nextLine();
+					
+						System.out.println("Ingrese la fecha de vencimiento (MM/AA):");
+						String vencimientoDebito = sc.nextLine();
+					
+						medioDePago = new Debito(monto, numeroTarjetaDebito, vencimientoDebito);
+						break;
 		            case 3:
-		                System.out.println("Ingrese el número de cuotas (2, 3, 6):");
-		                int cuotas = sc.nextInt();
-		                medioDePago = new Credito(monto, cuotas);
-		                break;
-		            default:
-		                System.out.println("Método de pago no válido.");
-		                return;
+						System.out.println("Ingrese el número de cuotas (2, 3, 6):");
+						int cuotas = sc.nextInt();
+						sc.nextLine(); 
+			
+						System.out.println("Ingrese el número de la tarjeta de crédito:");
+						String numeroTarjeta = sc.nextLine();
+			
+						System.out.println("Ingrese la fecha de vencimiento (MM/AA):");
+						String vencimiento = sc.nextLine();
+			
+						System.out.println("Ingrese el código de seguridad (CVV):");
+						String cvv = sc.nextLine();
+			
+						medioDePago = new Credito(monto, cuotas, numeroTarjeta, vencimiento, cvv);
+						break;
+					default:
+						System.out.println("Método de pago no válido.");
+						return;
 		        }
 
 		        Venta venta = new Venta(idVenta, detalles, medioDePago);
